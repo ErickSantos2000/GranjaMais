@@ -23,7 +23,7 @@ export default function CarouselHome() {
       controls={true}
       pause="hover"
     >
-      {}
+  
       <Carousel.Item>
         <div onClick={handleClick} style={{ cursor: 'pointer', position: 'relative' }}>
           <img
@@ -32,7 +32,7 @@ export default function CarouselHome() {
             alt="Granja de Frangos"
             style={{ height: '600px', objectFit: 'cover' }}
           />
-          {}
+          
           <div 
             className="position-absolute top-0 start-0 w-100 h-100"
             style={{
@@ -57,7 +57,7 @@ export default function CarouselHome() {
         </div>
       </Carousel.Item>
 
-      {}
+      
       <Carousel.Item>
         <div onClick={handleClick} style={{ cursor: 'pointer', position: 'relative' }}>
           <img
@@ -90,7 +90,7 @@ export default function CarouselHome() {
         </div>
       </Carousel.Item>
 
-      {}
+      
       <Carousel.Item>
         <div onClick={handleClick} style={{ cursor: 'pointer', position: 'relative' }}>
           <img

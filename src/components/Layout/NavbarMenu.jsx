@@ -31,7 +31,6 @@ export default function NavbarMenu() {
       }}
     >
       <Container>
-        {}
         <Navbar.Brand as={Link} to="/" className="d-flex align-items-center text-white">
           <img
             src="/iconeSite.png"

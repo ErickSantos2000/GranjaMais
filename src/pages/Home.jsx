@@ -16,13 +16,10 @@ export default function Home() {
         <p className="lead">Referência em qualidade e inovação na criação de frangos</p>
       </div>
 
-      {}
       <ImageTextSection />
 
-      {}
       <CardsHome />
 
-      {}
       <TrabalheConosco />
 
 

@@ -56,7 +56,6 @@ export default function ImageTextSection() {
             </Col>
           )}
 
-          {}
           <Col md={6}>
             <motion.div
               initial={{ opacity: 0, x: section.imageLeft ? 100 : -100 }}

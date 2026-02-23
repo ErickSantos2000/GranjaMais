@@ -32,7 +32,6 @@ export default function TrabalheConosco() {
               }}
             >
               <Row className="g-0">
-                {}
                 <Col md={5}>
                   <div 
                     style={{
@@ -46,7 +45,7 @@ export default function TrabalheConosco() {
                   />
                 </Col>
 
-                {}
+                
                 <Col md={7}>
                   <Card.Body className="p-5 d-flex flex-column justify-content-center h-100">
                     <div className="text-center text-md-start">
