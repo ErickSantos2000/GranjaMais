@@ -1,9 +1,11 @@
 import React, { useState, useEffect } from 'react';
 import { Navbar, Nav, Container } from 'react-bootstrap';
-import { Link } from 'react-router-dom';
+import { Link, useLocation } from 'react-router-dom';
 
 export default function NavbarMenu() {
   const [scrolled, setScrolled] = useState(false);
+  const location = useLocation();
+  const isHomePage = location.pathname === '/';
 
   useEffect(() => {
     const handleScroll = () => {
@@ -14,37 +16,33 @@ export default function NavbarMenu() {
     };
 
     window.addEventListener('scroll', handleScroll);
-
-    return () => {
-      window.removeEventListener('scroll', handleScroll);
-    };
+    return () => window.removeEventListener('scroll', handleScroll);
   }, [scrolled]);
+
+  //cores da homme e do galpão
+  const navbarBg = !isHomePage ? '#1a1a1a' : (scrolled ? '#1a1a1a' : 'transparent');
+  const textColor = !isHomePage ? '#fff' : (scrolled ? '#fff' : '#fff'); // Texto sempre branco
 
   return (
     <Navbar 
       expand="lg" 
       fixed="top"
-      className={`py-3 transition-navbar ${scrolled ? 'bg-dark' : 'bg-transparent'}`}
+      className="py-3 transition-navbar"
       style={{
+        backgroundColor: navbarBg,
         transition: 'all 0.3s ease-in-out',
-        boxShadow: scrolled ? '0 4px 20px rgba(0,0,0,0.1)' : 'none'
+        boxShadow: (!isHomePage || scrolled) ? '0 4px 20px rgba(0,0,0,0.2)' : 'none'
       }}
     >
       <Container>
-        <Navbar.Brand as={Link} to="/" className="d-flex align-items-center text-white">
+        <Navbar.Brand as={Link} to="/" className="d-flex align-items-center">
           <img
             src="/iconeSite.png"
             alt="Granja Mais"
             height="40"
-            className="d-inline-block align-top me-2"
-            style={{ 
-              borderRadius: '50%',
-              objectFit: 'cover',
-              transition: 'all 0.3s ease',
-              filter: 'brightness(1.1)' 
-            }}
+            className="d-inline-block align-top me-2 rounded-circle"
           />
-          <span className="fw-bold text-white">
+          <span className="fw-bold" style={{ color: textColor }}>
             Granja⁺
           </span>
         </Navbar.Brand>
@@ -58,26 +56,16 @@ export default function NavbarMenu() {
             <Nav.Link 
               as={Link} 
               to="/" 
-              className="mx-2 text-white fw-bold"
-              style={{ 
-                transition: 'all 0.3s ease',
-                textShadow: '1px 1px 2px rgba(0,0,0,0.3)' 
-              }}
-              onMouseEnter={(e) => e.target.style.opacity = '0.8'}
-              onMouseLeave={(e) => e.target.style.opacity = '1'}
+              className="mx-2 fw-bold"
+              style={{ color: textColor }}
             >
               Home
             </Nav.Link>
             <Nav.Link 
               as={Link} 
               to="/galpoes" 
-              className="mx-2 text-white fw-bold"
-              style={{ 
-                transition: 'all 0.3s ease',
-                textShadow: '1px 1px 2px rgba(0,0,0,0.3)'
-              }}
-              onMouseEnter={(e) => e.target.style.opacity = '0.8'}
-              onMouseLeave={(e) => e.target.style.opacity = '1'}
+              className="mx-2 fw-bold"
+              style={{ color: textColor }}
             >
               Galpões
             </Nav.Link>

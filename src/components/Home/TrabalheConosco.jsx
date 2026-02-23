@@ -50,7 +50,7 @@ export default function TrabalheConosco() {
                   <Card.Body className="p-5 d-flex flex-column justify-content-center h-100">
                     <div className="text-center text-md-start">
                       <h2 className="display-5 mb-3" style={{ color: '#28a745' }}>
-                        🐔 Trabalhe Conosco
+                        Trabalhe Conosco
                       </h2>
                       
                       <p className="lead mb-4">
