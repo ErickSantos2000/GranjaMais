@@ -1,7 +1,7 @@
 import React from 'react';
 import NavbarMenu from './NavbarMenu';
 import Footer from './footer';
-import AppRoutes from '../../routes/AppRoutes';  // CORRIGIDO: dois pontos (..) para subir dois níveis
+import AppRoutes from '../../routes/AppRoutes';  
 
 export default function Layout() {
   return (

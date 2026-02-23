@@ -5,13 +5,13 @@ body {
   overflow-x: hidden;
 }
 
-/* Efeito de parallax suave */
+
 section {
   position: relative;
   overflow: hidden;
 }
 
-/* Animações personalizadas (se quiser complementar o framer-motion) */
+
 @keyframes fadeInUp {
   from {
     opacity: 0;
@@ -25,4 +25,147 @@ section {
 
 .animate-on-scroll {
   animation: fadeInUp 0.8s ease forwards;
+}
+
+
+.carousel-premium .carousel-inner {
+  border-radius: 0;
+}
+
+.carousel-premium .carousel-item {
+  position: relative;
+}
+
+
+.carousel-premium .carousel-item::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(to bottom, rgba(0,0,0,0.15) 0%, rgba(0,0,0,0.05) 50%, rgba(0,0,0,0.15) 100%);
+  z-index: 1;
+  pointer-events: none;
+}
+
+.carousel-premium .carousel-caption {
+  z-index: 2;
+  bottom: 20%;
+  padding: 20px;
+  text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
+}
+
+.carousel-premium .carousel-caption h3 {
+  font-size: 3.5rem;
+  font-weight: 700;
+  margin-bottom: 1.5rem;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  animation: fadeInUp 1s ease;
+}
+
+.carousel-premium .carousel-caption p {
+  font-size: 1.5rem;
+  font-weight: 300;
+  max-width: 800px;
+  margin: 0 auto;
+  line-height: 1.6;
+  animation: fadeInUp 1s ease 0.2s both;
+}
+
+
+.carousel-premium .carousel-indicators {
+  bottom: 30px;
+  z-index: 3;
+}
+
+.carousel-premium .carousel-indicators button {
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  margin: 0 6px;
+  background-color: rgba(255, 255, 255, 0.5);
+  border: 2px solid transparent;
+  transition: all 0.3s ease;
+}
+
+.carousel-premium .carousel-indicators button.active {
+  background-color: #28a745;
+  transform: scale(1.2);
+  border: 2px solid white;
+}
+
+/* Controles (setas) */
+.carousel-premium .carousel-control-prev,
+.carousel-premium .carousel-control-next {
+  width: 5%;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  z-index: 3;
+}
+
+.carousel-premium:hover .carousel-control-prev,
+.carousel-premium:hover .carousel-control-next {
+  opacity: 0.9;
+}
+
+.carousel-premium .carousel-control-prev-icon,
+.carousel-premium .carousel-control-next-icon {
+  background-color: #28a745;
+  border-radius: 50%;
+  padding: 25px;
+  background-size: 50%;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+}
+
+/* Responsividade */
+@media (max-width: 992px) {
+  .carousel-premium .carousel-caption h3 {
+    font-size: 2.5rem;
+  }
+  
+  .carousel-premium .carousel-caption p {
+    font-size: 1.2rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .carousel-premium .carousel-caption {
+    bottom: 15%;
+  }
+  
+  .carousel-premium .carousel-caption h3 {
+    font-size: 1.8rem;
+    letter-spacing: 1px;
+  }
+  
+  .carousel-premium .carousel-caption p {
+    font-size: 1rem;
+    padding: 0 15px;
+  }
+  
+  .carousel-premium .carousel-indicators button {
+    width: 8px;
+    height: 8px;
+    margin: 0 4px;
+  }
+  
+  .carousel-premium .carousel-control-prev-icon,
+  .carousel-premium .carousel-control-next-icon {
+    padding: 15px;
+  }
+}
+
+
+@media (max-width: 576px) {
+  .carousel-premium .carousel-caption h3 {
+    font-size: 1.4rem;
+    margin-bottom: 0.5rem;
+  }
+  
+  .carousel-premium .carousel-caption p {
+    font-size: 0.9rem;
+    line-height: 1.4;
+  }
 }

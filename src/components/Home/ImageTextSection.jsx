@@ -14,14 +14,14 @@ export default function ImageTextSection() {
       title: "Tecnologia Avançada",
       text: "Nossa granja utiliza os mais modernos sistemas de automação para garantir o bem-estar das aves e a eficiência da produção. Sensores de temperatura, alimentação automatizada e monitoramento 24/7.",
       image: imagem1,
-      imageLeft: true // imagem à esquerda, texto à direita
+      imageLeft: true 
     },
     {
       id: 2,
       title: "Bem-estar Animal",
       text: "Priorizamos o conforto e a saúde dos frangos com ambientes climatizados, espaço adequado e nutrição balanceada. Tudo para garantir aves mais saudáveis e de maior qualidade.",
       image: imagem2,
-      imageLeft: false // imagem à direita, texto à esquerda
+      imageLeft: false 
     },
     {
       id: 3,
@@ -56,7 +56,7 @@ export default function ImageTextSection() {
             </Col>
           )}
 
-          {/* Coluna do texto */}
+          {}
           <Col md={6}>
             <motion.div
               initial={{ opacity: 0, x: section.imageLeft ? 100 : -100 }}
