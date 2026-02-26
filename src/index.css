@@ -157,6 +157,17 @@ section {
   }
 }
 
+/* Remove spin buttons from number inputs */
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+input[type=number] {
+  -moz-appearance: textfield;
+}
+
 
 @media (max-width: 576px) {
   .carousel-premium .carousel-caption h3 {

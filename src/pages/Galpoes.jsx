@@ -1,31 +1,44 @@
-import React, { useState, useEffect } from 'react'; // importa os hoocks
-import galpaoService from '../services/galpaoService'; // importa o serviço
-import { Container } from 'react-bootstrap';
+import React, { useState, useEffect } from 'react';
+import { Container, Button } from 'react-bootstrap';
+import galpaoService from '../services/galpaoService';
 import GalpaoTable from '../components/Galpao/GalpaoTable';
+import GalpaoForm from '../components/Galpao/GalpaoForm';
 
 export default function Galpoes() {
-    // criando estado para guardar listas de galpoes
-    const[galpoes, setGalpoes] = useState([]);
+    const [galpoes, setGalpoes] = useState([]);
+    const [showModal, setShowModal] = useState(false);
 
-    // executa assim que uma função a pagina é montada na tela
-    useEffect(() => {
-      const buscarDados = async () => {
+    // Função para buscar dados da API
+    const buscarDados = async () => {
         try {
-          const dados = await galpaoService.listar(); // chama o get do serviço
-          setGalpoes(dados); // salva os dados recebidos no estado
+            const dados = await galpaoService.listar();
+            setGalpoes(dados);
         } catch (error) {
-          console.error("Erro ao buscar galpões:", error);
+            console.error("Erro ao buscar galpões:", error);
         }
-      }
-      buscarDados();
+    };
 
+    // Carrega os dados na primeira vez que a página monta
+    useEffect(() => {
+        buscarDados();
     }, []);
-  return (
 
-    <Container className="mt-5 pt-5"> {/* Adicionado mt-5 pt-5 */}
-      
-      <GalpaoTable galpoes={galpoes} />
+    return (
+        <Container className="mt-5 pt-5">
+            <div className="d-flex justify-content-between align-items-center mb-4">
+                <h2 className="fw-bold">Gestão de Galpões</h2>
+                <Button variant="success" onClick={() => setShowModal(true)}>
+                    + Novo Galpão
+                </Button>
+            </div>
+            
+            <GalpaoTable galpoes={galpoes} />
 
-    </Container>
-  );
+            <GalpaoForm 
+                show={showModal} 
+                handleClose={() => setShowModal(false)} 
+                recarregarDados={buscarDados} 
+            />
+        </Container>
+    );
 }
