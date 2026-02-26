@@ -1,0 +1,16 @@
+ {
+    "galpoes": [
+        {
+        "id": 1,
+        "nome": "Galpão Norte 01",
+        "qtdFrangos": 1500,
+        "qtdComedouros": 20,
+        "qtdBebedouros": 25,
+        "qtdVentiladores": 10,
+        "qtdExaustores": 4,
+        "qtdResponsaveis": 2,
+        "temTermometro": true
+        }
+    ]
+}
+
